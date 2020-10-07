@@ -8,15 +8,14 @@ int main()
 {
 	srand(time(0));
 
-	int SIZE = 16;
+	int SIZE = 10;
+	//int array[SIZE]{2,3,4,8,3,6,7,6,3,2};
 	int array[SIZE];
-
-	for(auto i = 0; i < SIZE; i++)
+	for(auto i = 0; i < SIZE; ++i)
 	{
-		array[i] = rand() % 20;
-		std::cout << array[i] << " " ;
+		array[i] = rand() % 10;
+		printf("%d ", array[i]);
 	}
-
 
 	peak_finder(array, SIZE);
 
@@ -25,37 +24,39 @@ int main()
 
 void peak_finder(int* arr, int size)
 {
-	
 	// indices
 	int start = 0;
 	int mid;
-	int end;
+	int end = size - 1;
 
-	end = size;
-
-	while(start < end)
+	while(true)
 	{
-		mid = (end - start) / 2;
-
-		if( *(arr + mid) <= *(arr + mid - 1))  // checking if left is greater than right
+		if(end - start == 1)
 		{
-			end = *(arr + mid);  // if it is, updating right pointer
-		}
-
-		else if( *(arr + mid) <= *(arr + mid + 1))  // checking if right is greater than left
-		{
-			start = *(arr + mid);  // if it is, updating left pointer
-		}
-
-		else if( *(arr + mid) >= *(arr + mid + 1) && *(arr + mid) >= *(arr + mid - 1))
-		{
-			break;
-		}
-		else{
+			mid = (arr[start] > arr[end] ? start : end);
 			break;
 		}
 
+		else
+			mid = (end + start) / 2;
+
+
+		if( arr[mid] <= arr[mid - 1])  // checking if left is greater than right
+		{
+			end = mid;  // if it is, updating right pointer
+		}
+
+		else if( arr[mid] <= arr[mid + 1])  // checking if right is greater than left
+		{
+			start = mid;  // if it is, updating left pointer
+		}
+
+		else if( arr[mid] >= arr[mid + 1] && arr[mid] >= arr[mid - 1])
+		{
+			break;
+		}
 	}
-
-	std::cout << "peak value: " << arr[mid] << ", location: " <<  mid + 1 << std::endl;
+	
+	std::cout << "peak value: " << arr[mid] << ",  location: " <<  mid + 1 << std::endl;
 }
+
