@@ -13,7 +13,7 @@ std::ostream& operator<<(std::ostream& os, const int (&arr)[size])
 {
 	for(unsigned int i = 0; i < size; ++i)
 	{
-    	os << arr[i] << " " ;		
+    		os << arr[i] << " " ;		
 	}
     return os;
 }
