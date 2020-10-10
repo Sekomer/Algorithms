@@ -1,22 +1,15 @@
 // # Authors: Sekomer, Calrassian
 //
+
 #include <iostream>
 #include <ctime>
-#include <cstdlib>
 
 void merge_sort(int *, int start, int end);
 void merge(int*, int start, int mid, int end);
 
 
 template<size_t size>
-std::ostream& operator<<(std::ostream& os, const int (&arr)[size])
-{
-	for(unsigned int i = 0; i < size; ++i)
-	{
-    		os << arr[i] << " " ;		
-	}
-    return os;
-}
+std::ostream& operator<<(std::ostream&, const int (&)[size]);
 
 
 int main()
@@ -38,6 +31,17 @@ int main()
 	std::cout << arr; 
 
 	return 0;
+}
+
+
+template<size_t size>
+std::ostream& operator<<(std::ostream& os, const int (&arr)[size])
+{
+	for(unsigned int i = 0; i < size; ++i)
+	{
+    		os << arr[i] << " " ;		
+	}
+    return os;
 }
 
 
@@ -72,7 +76,6 @@ void merge(int* arr, int start, int mid, int end)
 	{
 		sub_2[i - (mid + 1)] = arr[i];		
 	}
-
 
 	// two finger pointer algorithm
 	int idx1 = 0, idx2 = 0;
