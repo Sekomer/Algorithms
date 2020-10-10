@@ -100,25 +100,14 @@ void merge(int* arr, int start, int mid, int end)
 		}	
 	}
 
-	if(idx2 < s2)
+	
+	// don't have to check the second array, cuz its already
+	// on the right side and sorted
+	for( ; idx1 < s1; ++idx1)
 	{
-		for( ; idx2 < s2; ++idx2)
-		{
-			arr[start++] = sub_2[idx2];
-		}
+		arr[start++] = sub_1[idx1];
 	}
 
-	if (idx1 < s1)
-	{
-		for( ; idx1 < s1; ++idx1)
-		{
-			arr[start++] = sub_1[idx1];
-		}
-
-	}
+	
 
 }
-
-
-
-
