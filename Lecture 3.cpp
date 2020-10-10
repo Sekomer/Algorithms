@@ -80,12 +80,6 @@ void merge(int* arr, int start, int mid, int end)
 	// two finger pointer algorithm
 	int idx1 = 0, idx2 = 0;
 
-// end 7
-// start 0
-// [1,2,3] // [1,3,7,8]
-//      *
-//                 *
-// 
 
 	while(idx1 < s1 and idx2 < s2)
 	{
@@ -107,7 +101,5 @@ void merge(int* arr, int start, int mid, int end)
 	{
 		arr[start++] = sub_1[idx1];
 	}
-
-	
 
 }
