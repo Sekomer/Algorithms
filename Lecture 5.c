@@ -47,7 +47,7 @@ int main()
 	BNODE* root = new_node(5);
 	int s = sizeof(a)/sizeof(*a);
 	
-	for (int i = 0; i < s; i++)
+	for (int i = 0; i < s; ++i)
 		insert_key(root, a[i]);
 	
 	in_order(root);
@@ -69,19 +69,26 @@ insert(BNODE *root, BNODE *bnode)
 {
 	BNODE *ptr = root;
 	while (1) {
-		if (bnode->key > ptr->key) {
+		if (bnode->key > ptr->key) 
+		{
 			if (ptr->right != NULL)
 				ptr = ptr->right;
-			else {
+			
+			else 
+			{
 				ptr->right = bnode;
 				bnode->parent = ptr;
 				break;
 			}
 		}
-		else {
+		
+		else 
+		{
 			if (ptr->left != NULL)
 				ptr = ptr->left;
-			else {
+			
+			else 
+			{
 				ptr->left = bnode;
 				bnode->parent = ptr;
 				break;
