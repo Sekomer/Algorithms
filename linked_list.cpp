@@ -35,13 +35,16 @@ public:
 		tail->next = head;
 		head->next = NULL;
 	}
+
 	// parametered constructor
 	linked_list(int num) 
 	{
 		head->data = num;
 		tail->next = head;
 		head->next = NULL;
-	}ß
+	}
+
+
 	/*
 	// Function that prints every nodes value. O(n)
 	*/
@@ -57,6 +60,7 @@ public:
 		}
 	}	
 
+
 	/*
 	// Function adds a new node to top of linkedlist, makes it new head. O(1)
 	// @param value is new nodes value
@@ -68,6 +72,7 @@ public:
 		head->next = node;
 		head = node;	
 	}
+
 
 	/* 
 	// Function inserts a new node to choosen index. O(n)
